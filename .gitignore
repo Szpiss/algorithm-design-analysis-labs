@@ -1,0 +1,9 @@
+.venv/
+build/
+tmp/
+output/
+*.o
+*.obj
+*.swp
+.DS_Store
+
