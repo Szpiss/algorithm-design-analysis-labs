@@ -55,13 +55,14 @@ EXPERIMENTS = [
         "report_images": [
             ("图 1-1 程序开头与核心数据结构", "/Users/cuing/Desktop/1/截屏2026-04-07 08.51.04.png"),
             ("图 1-2 工具函数与辅助逻辑", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.11.png"),
-            ("图 1-3 称重函数与日志输出逻辑", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.17.png"),
-            ("图 1-4 已知真币后的判定逻辑", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.24.png"),
+            ("图 1-3 splitThree 与 compareGroups 称重逻辑", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.17.png"),
+            ("图 1-4 identifyByGenuine 与 bruteForcePolarized 逻辑", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.24.png"),
             ("图 1-5 searchKnown 递归过程", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.31.png"),
             ("图 1-6 searchPolarized 递归过程", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.37.png"),
             ("图 1-7 searchUnknown 递归过程", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.45.png"),
             ("图 1-8 主函数与结果输出逻辑", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.50.png"),
-            ("图 1-9 样例运行结果", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.54.png"),
+            ("图 1-9 实验一样例输入", "/Users/cuing/Desktop/1/截屏2026-04-07 09.11.56.png"),
+            ("图 1-10 实验一编译与运行结果", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.54.png"),
         ],
         "conclusion": (
             "通过本实验，掌握了分治法中“分解 - 递归求解 - 合并判断”的基本思想，"
@@ -110,10 +111,11 @@ EXPERIMENTS = [
             "截图 3：输出最短路径及路径长度的结果截图。"
         ],
         "report_images": [
-            ("图 2-1 程序开头与输入处理逻辑", "/Users/cuing/Desktop/截屏2026-04-07 08.57.48.png"),
-            ("图 2-2 DFS 回溯与最短路径维护逻辑", "/Users/cuing/Desktop/截屏2026-04-07 08.57.59.png"),
-            ("图 2-3 路径输出与结果展示逻辑", "/Users/cuing/Desktop/截屏2026-04-07 08.58.03.png"),
-            ("图 2-4 实验二样例运行结果", "/Users/cuing/Desktop/截屏2026-04-07 08.59.33.png"),
+            ("图 2-1 程序开头与输入处理逻辑", "/Users/cuing/Desktop/2/截屏2026-04-07 08.57.48.png"),
+            ("图 2-2 DFS 回溯与最短路径维护逻辑", "/Users/cuing/Desktop/2/截屏2026-04-07 08.57.59.png"),
+            ("图 2-3 路径输出与结果展示逻辑", "/Users/cuing/Desktop/2/截屏2026-04-07 08.58.03.png"),
+            ("图 2-4 实验二样例输入", "/Users/cuing/Desktop/2/截屏2026-04-07 09.11.39.png"),
+            ("图 2-5 实验二编译与运行结果", "/Users/cuing/Desktop/2/截屏2026-04-07 08.59.33.png"),
         ],
         "conclusion": (
             "通过本实验，进一步理解了回溯法的搜索过程、剪枝思想以及恢复现场的重要性，"
