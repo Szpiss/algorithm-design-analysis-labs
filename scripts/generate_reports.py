@@ -1,8 +1,8 @@
-from copy import deepcopy
 from pathlib import Path
 
 from docx import Document
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+from docx.shared import Inches
 
 
 ROOT = Path("/Users/cuing/algorithm")
@@ -51,6 +51,17 @@ EXPERIMENTS = [
             "截图 1：核心递归函数或称重逻辑的代码调试截图。",
             "截图 2：程序运行后展示称重过程的控制台截图。",
             "截图 3：最终定位假币编号与轻重属性的结果截图。"
+        ],
+        "report_images": [
+            ("图 1-1 程序开头与核心数据结构", "/Users/cuing/Desktop/1/截屏2026-04-07 08.51.04.png"),
+            ("图 1-2 工具函数与辅助逻辑", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.11.png"),
+            ("图 1-3 称重函数与日志输出逻辑", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.17.png"),
+            ("图 1-4 已知真币后的判定逻辑", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.24.png"),
+            ("图 1-5 searchKnown 递归过程", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.31.png"),
+            ("图 1-6 searchPolarized 递归过程", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.37.png"),
+            ("图 1-7 searchUnknown 递归过程", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.45.png"),
+            ("图 1-8 主函数与结果输出逻辑", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.50.png"),
+            ("图 1-9 样例运行结果", "/Users/cuing/Desktop/1/截屏2026-04-07 08.52.54.png"),
         ],
         "conclusion": (
             "通过本实验，掌握了分治法中“分解 - 递归求解 - 合并判断”的基本思想，"
@@ -232,6 +243,14 @@ def add_list(doc, items):
         add_paragraph(doc, f"{idx}. {item}")
 
 
+def add_image(doc, caption, image_path):
+    add_paragraph(doc, caption, align=WD_PARAGRAPH_ALIGNMENT.CENTER)
+    paragraph = doc.add_paragraph()
+    paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+    run = paragraph.add_run()
+    run.add_picture(str(image_path), width=Inches(6.2))
+
+
 def main():
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -283,12 +302,20 @@ def main():
         add_heading(doc, "七、测试结果与分析", 2)
         add_list(doc, experiment["test_summary"])
 
-        add_heading(doc, "八、截图粘贴说明", 2)
-        add_paragraph(doc, "按照指导书要求，建议至少补充以下截图：")
-        add_list(doc, experiment["screenshots"])
-        add_paragraph(doc, "【在此插入截图 1】", align=WD_PARAGRAPH_ALIGNMENT.CENTER)
-        add_paragraph(doc, "【在此插入截图 2】", align=WD_PARAGRAPH_ALIGNMENT.CENTER)
-        add_paragraph(doc, "【在此插入截图 3】", align=WD_PARAGRAPH_ALIGNMENT.CENTER)
+        add_heading(doc, "八、实验内容", 2)
+        if "report_images" in experiment:
+            add_paragraph(doc, "本实验的核心代码截图与运行结果截图如下：")
+            for caption, image_path in experiment["report_images"]:
+                if Path(image_path).exists():
+                    add_image(doc, caption, image_path)
+                else:
+                    add_paragraph(doc, f"{caption}（图片缺失：{image_path}）")
+        else:
+            add_paragraph(doc, "按照指导书要求，本节建议补充以下实验内容截图：")
+            add_list(doc, experiment["screenshots"])
+            add_paragraph(doc, "【在此插入实验内容截图 1】", align=WD_PARAGRAPH_ALIGNMENT.CENTER)
+            add_paragraph(doc, "【在此插入实验内容截图 2】", align=WD_PARAGRAPH_ALIGNMENT.CENTER)
+            add_paragraph(doc, "【在此插入实验内容截图 3】", align=WD_PARAGRAPH_ALIGNMENT.CENTER)
 
         add_heading(doc, "九、实验总结", 2)
         add_paragraph(doc, experiment["conclusion"])
@@ -300,4 +327,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
